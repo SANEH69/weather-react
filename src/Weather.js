@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Durban from "./Durban";
 import './Weather.css'
 
 
@@ -34,7 +35,8 @@ function Weather() {
             <input type="submit" className="submitButton" />
         </form>
     );
-
+    
+    if (city) {
     return (
         <div>
             <h1>{form}</h1>
@@ -49,5 +51,14 @@ function Weather() {
             </div>
         </div>
     );
+} else {
+    return (
+        <div>
+            <h1>{form}</h1>
+            <Durban />
+        </div>
+        
+    );
+}
 }
 export default Weather;
