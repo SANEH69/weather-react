@@ -37,3 +37,12 @@
     transform: rotate(360deg);
   }
 }
+@media (max-width: 1300px) {
+  .App .App-header {
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+  }
+}

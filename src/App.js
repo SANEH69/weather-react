@@ -6,14 +6,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <div className="outer" >
-      <div className="inner" >
       <header className="App-header">
         <Weather city="Durban" />
         <Footer />
       </header>
-    </div>
-    </div>
     </div>
   );
 }

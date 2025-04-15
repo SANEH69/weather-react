@@ -30,7 +30,7 @@ function Weather(props) {
 
     let form = (
         <form onSubmit={updateCity}>
-            <input type="search" onChange={searchCity}/>
+            <input type="search" onChange={searchCity} className="city"/>
             <input type="submit" className="submitButton" />
         </form>
     );
