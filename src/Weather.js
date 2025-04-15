@@ -8,7 +8,6 @@ function Weather(props) {
     let [weather, setWeather] = useState (" ");
 
     function displayWeather(response) {
-        console.log(response);
         setWeather({
             city: response.data.city,
             temperature: response.data.temperature.current,
@@ -45,13 +44,11 @@ function Weather(props) {
                     <p>{weather.condition}, humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
                 </div>
                 <div>
+                    ☀️  
                     <h1>{Math.round(weather.temperature)}°C</h1>
                 </div>
             </div>
-            
-            
         </div>
-       
     );
 }
 export default Weather;
