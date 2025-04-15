@@ -42,9 +42,7 @@ function Weather(props) {
             <div className="weatherConditions">
                 <div>
                     <h2>{weather.city}</h2>
-                    <p>{weather.condition}</p>
-                    <p>Humidity: {weather.humidity}%</p>
-                    <p>Wind: {weather.windSpeed}</p>
+                    <p>{weather.condition}, humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
                 </div>
                 <div>
                     <h1>{Math.round(weather.temperature)}°C</h1>
