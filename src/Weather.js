@@ -3,7 +3,7 @@ import axios from "axios";
 import './Weather.css'
 
 
-function Weather(props) {
+function Weather() {
     let [city, setCity] = useState(" ");
     let [weather, setWeather] = useState (" ");
 
@@ -22,7 +22,7 @@ function Weather(props) {
         let apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
         let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
         axios.get(apiUrl).then(displayWeather);
-    } 
+    }
 
     function searchCity(event) {
         setCity(event.target.value);
@@ -44,7 +44,6 @@ function Weather(props) {
                     <p>{weather.condition}, humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
                 </div>
                 <div>
-                    ☀️  
                     <h1>{Math.round(weather.temperature)}°C</h1>
                 </div>
             </div>
