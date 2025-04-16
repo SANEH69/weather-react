@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Durban from "./Durban";
+import WeatherIcon from "./WeatherIcon";
 import './Weather.css'
 
 
@@ -18,6 +19,7 @@ function Weather() {
             humidity: response.data.temperature.humidity,
             windSpeed: response.data.wind.speed,
             condition: response.data.condition.description,
+            icon: response.data.condition.icon,
         });
     }
 
@@ -58,6 +60,7 @@ function Weather() {
                 <div>
                     <p>Wednesday, April 22</p>
                     <h2>{weather.city},{weather.country}</h2>
+                    <WeatherIcon code={weather.icon} />
                     <p>{weather.condition}</p>
                     <h1>{Math.round(temperature)}<a href="/" onClick={showCelsius}>°C</a> | <a href="/" onClick={showFahrenheit}>°F</a></h1>
                     <p>humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
