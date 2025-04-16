@@ -9,6 +9,7 @@ input {
     font-size: medium;
 }
 .weatherConditions {
+    background-color: rgb(38, 38, 79);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
