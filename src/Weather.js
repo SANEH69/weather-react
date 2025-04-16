@@ -9,8 +9,10 @@ function Weather() {
     let [weather, setWeather] = useState (" ");
 
     function displayWeather(response) {
+        console.log(response.data);
         setWeather({
             city: response.data.city,
+            country: response.data.country,
             temperature: response.data.temperature.current,
             humidity: response.data.temperature.humidity,
             windSpeed: response.data.wind.speed,
@@ -42,11 +44,11 @@ function Weather() {
             <h1>{form}</h1>
             <div className="weatherConditions">
                 <div>
-                    <h2>{weather.city}</h2>
-                    <p>{weather.condition}, humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
-                </div>
-                <div>
+                    <p>Wednesday, April 22</p>
+                    <h2>{weather.city},{weather.country}</h2>
+                    <p>{weather.condition}</p>
                     <h1>{Math.round(weather.temperature)}°C</h1>
+                    <p>humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
                 </div>
             </div>
         </div>

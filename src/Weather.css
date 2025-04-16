@@ -5,13 +5,11 @@ input {
     margin: 0px 5px;
 }
 .submitButton {
-    background-color: #87cefa;
+    background-color: #339DAE;
     font-size: medium;
 }
 .weatherConditions {
-    background-color: rgb(38, 38, 79);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
 }
 p {
     font-size: 15px;
