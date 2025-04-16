@@ -7,6 +7,7 @@ import './Weather.css'
 function Weather() {
     let [city, setCity] = useState(" ");
     let [weather, setWeather] = useState (" ");
+    let [temperature, setTemperature] = useState (" ");
 
     function displayWeather(response) {
         console.log(response.data);
@@ -31,6 +32,17 @@ function Weather() {
         setCity(event.target.value);
     }
 
+    function showFahrenheit(event) {
+        event.preventDefault();
+        let temperature = Math.round(weather.temperature * 9)/ 5 + 32;
+        setTemperature(temperature);
+    }
+
+    function showCelsius(event) {
+        event.preventDefault();
+        setTemperature(weather.temperature);
+    }
+
     let form = (
         <form onSubmit={updateCity}>
             <input type="search" onChange={searchCity} className="city"/>
@@ -47,7 +59,7 @@ function Weather() {
                     <p>Wednesday, April 22</p>
                     <h2>{weather.city},{weather.country}</h2>
                     <p>{weather.condition}</p>
-                    <h1>{Math.round(weather.temperature)}°C</h1>
+                    <h1>{Math.round(temperature)}<a href="/" onClick={showCelsius}>°C</a> | <a href="/" onClick={showFahrenheit}>°F</a></h1>
                     <p>humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
                 </div>
             </div>
