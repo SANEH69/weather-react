@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Durban from "./Durban";
 import WeatherIcon from "./WeatherIcon";
@@ -6,7 +6,7 @@ import './Weather.css'
 
 
 function Weather() {
-    let [city, setCity] = useState(" ");
+    let [city, setCity] = useState('Durban');
     let [weather, setWeather] = useState (" ");
     let [temperature, setTemperature] = useState (" ");
 
@@ -23,6 +23,10 @@ function Weather() {
             icon: response.data.condition.icon,
         });
     }
+
+    useEffect(() => {
+        displayWeather(city);
+      }, [city]);
 
     function updateCity(event) {
         event.preventDefault();
