@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Durban from "./Durban";
 import WeatherIcon from "./WeatherIcon";
+import Date from "./Date";
 import './Weather.css'
 
 
@@ -13,6 +14,7 @@ function Weather() {
     function displayWeather(response) {
         console.log(response.data);
         setWeather({
+            date : new Date(response.data.time * 1000),
             city: response.data.city,
             country: response.data.country,
             temperature: response.data.temperature.current,
@@ -58,7 +60,7 @@ function Weather() {
             <h1>{form}</h1>
             <div className="weatherConditions">
                 <div>
-                    <p>Wednesday, April 22</p>
+                    <Date code={weather.date} />
                     <h2>{weather.city},{weather.country}</h2>
                     <WeatherIcon code={weather.icon} />
                     <p>{weather.condition}</p>
