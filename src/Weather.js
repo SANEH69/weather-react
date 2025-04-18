@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Durban from "./Durban";
+import Date from "./Date";
 import WeatherIcon from "./WeatherIcon";
 import './Weather.css'
 
@@ -59,6 +60,7 @@ function Weather() {
             <h1>{form}</h1>
             <div className="weatherConditions">
                 <div>
+                    <Date code={weather.date} />
                     <h2>{weather.city},{weather.country}</h2>
                     <WeatherIcon code={weather.icon} />
                     <p>{weather.condition}</p>
