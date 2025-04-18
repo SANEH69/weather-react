@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherIcon from "./WeatherIcon";
+import Date from "./Date";
+import Units from "./Units";
 import './Weather.css'
 
 
 function Weather(props) {
     let [city, setCity] = useState(props.defaultCity);
     let [weather, setWeather] = useState ({ ready: false });
-    let [temperature, setTemperature] = useState(" ");
 
     function displayWeather(response) {
-        console.log(response.data);
         setWeather({
             ready: true,
-            date : new Date(response.data.time * 1000),
+            time : new Date(response.data.time * 1000),
             city: response.data.city,
             country: response.data.country,
             temperature: response.data.temperature.current,
@@ -39,17 +39,6 @@ function Weather(props) {
         setCity(event.target.value);
     }
 
-    function showFahrenheit(event) {
-        event.preventDefault();
-        let temperature = Math.round(weather.temperature * 9)/ 5 + 32;
-        setTemperature(temperature);
-    }
-
-    function showCelsius(event) {
-        event.preventDefault();
-        setTemperature(weather.temperature);
-    }
-
     let form = (
         <form onSubmit={updateCity}>
             <input type="search" onChange={searchCity} className="searchButton"/>
@@ -63,10 +52,11 @@ function Weather(props) {
             <h1>{form}</h1>
             <div className="weatherConditions">
                 <div>
+                    <Date code={weather.time} />
                     <h2>{weather.city},{weather.country}</h2>
                     <WeatherIcon code={weather.icon} />
-                    <p>{weather.condition}</p>
-                    <h1>{Math.round(temperature)}<a href="/" onClick={showCelsius}>°C</a> | <a href="/" onClick={showFahrenheit}>°F</a></h1>
+                    <p className="description">{weather.condition}</p>
+                    <Units celsius={Math.round(weather.temperature)} />
                     <p><strong>Humidity:</strong> {weather.humidity}%, <strong>Wind:</strong> {weather.windSpeed}km/h</p>
                 </div>
             </div>
