@@ -13,7 +13,7 @@ function Weather(props) {
     function displayWeather(response) {
         setWeather({
             ready: true,
-            time : new Date(response.data.time * 1000),
+            date : new Date(response.data.time * 1000),
             city: response.data.city,
             country: response.data.country,
             temperature: response.data.temperature.current,
@@ -52,7 +52,7 @@ function Weather(props) {
             <h1>{form}</h1>
             <div className="weatherConditions">
                 <div>
-                    <Date code={weather.time} />
+                    <Date code={weather.date} />
                     <h2>{weather.city},{weather.country}</h2>
                     <WeatherIcon code={weather.icon} />
                     <p className="description">{weather.condition}</p>
