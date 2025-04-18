@@ -7,7 +7,7 @@ import './Weather.css'
 function Weather(props) {
     let [city, setCity] = useState(props.defaultCity);
     let [weather, setWeather] = useState ({ ready: false });
-    let [temperature, setTemperature] = useState (" ");
+    let [temperature, setTemperature] = useState(" ");
 
     function displayWeather(response) {
         console.log(response.data);
@@ -24,7 +24,7 @@ function Weather(props) {
         });
     }
 
-    function getCity() {
+    function search() {
         let apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
         let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
         axios.get(apiUrl).then(displayWeather);
@@ -32,7 +32,7 @@ function Weather(props) {
 
     function updateCity(event) {
         event.preventDefault();
-        getCity();
+        search();
     }
 
     function searchCity(event) {
@@ -67,18 +67,13 @@ function Weather(props) {
                     <WeatherIcon code={weather.icon} />
                     <p>{weather.condition}</p>
                     <h1>{Math.round(temperature)}<a href="/" onClick={showCelsius}>°C</a> | <a href="/" onClick={showFahrenheit}>°F</a></h1>
-                    <p>humidity: {weather.humidity}%, wind: {weather.windSpeed}km/h</p>
+                    <p><strong>Humidity:</strong> {weather.humidity}%, <strong>Wind:</strong> {weather.windSpeed}km/h</p>
                 </div>
             </div>
         </div>
     );
 } else {
-    return (
-        <div>
-            <h1>{form}</h1>
-        </div>
-        
-    );
+    search();
 }
 }
 export default Weather;
