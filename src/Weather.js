@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Durban from "./Durban";
 import WeatherIcon from "./WeatherIcon";
@@ -23,10 +23,6 @@ function Weather() {
             icon: response.data.condition.icon,
         });
     }
-
-    useEffect(() => {
-        displayWeather(city);
-      }, [city]);
 
     function updateCity(event) {
         event.preventDefault();
