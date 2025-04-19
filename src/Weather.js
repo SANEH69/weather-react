@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherIcon from "./WeatherIcon";
-import Date from "./Date";
+import WeatherDate from "./WeatherDate";
 import Units from "./Units";
 import './Weather.css'
 
@@ -52,7 +52,7 @@ function Weather(props) {
             <h1>{form}</h1>
             <div className="weatherConditions">
                 <div>
-                    <Date code={weather.date} />
+                    <WeatherDate data={weather.date} />
                     <h2>{weather.city},{weather.country}</h2>
                     <WeatherIcon code={weather.icon} />
                     <p className="description">{weather.condition}</p>
