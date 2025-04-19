@@ -1,4 +1,5 @@
 import React from "react";
+import "./WeatherDate.css";
 
 export default function WeatherDate(props) {
     console.log(props.data);
