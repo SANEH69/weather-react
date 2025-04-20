@@ -16,12 +16,6 @@ export default function DailyForecast(props) {
         setLoaded(false);
     }, [props.code]);
 
-
-    let apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.code}&key=${apiKey}`;
-
-    axios.get(apiUrl).then(displayForecast);
-
     if (loaded) {
     return  (
     <div className="dailyForecast">
@@ -37,6 +31,10 @@ export default function DailyForecast(props) {
     </div>
     ); 
     } else {
-        return <p>"Loading"</p>;
+        let apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
+        let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.code}&key=${apiKey}`;
+
+        axios.get(apiUrl).then(displayForecast);
+        return <p>LOADING...</p>;
     }
 }
