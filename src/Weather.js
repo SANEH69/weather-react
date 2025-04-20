@@ -11,6 +11,7 @@ function Weather(props) {
     let [weather, setWeather] = useState ({ ready: false });
 
     function displayWeather(response) {
+        console.log(response.data.temperature.feels_like);
         setWeather({
             ready: true,
             date : new Date(response.data.time * 1000),
@@ -21,6 +22,8 @@ function Weather(props) {
             windSpeed: response.data.wind.speed,
             condition: response.data.condition.description,
             icon: response.data.condition.icon,
+            pressure : response.data.temperature.pressure,
+            like: response.data.temperature.feels_like
         });
     }
 
@@ -57,7 +60,8 @@ function Weather(props) {
                     <WeatherIcon code={weather.icon} />
                     <p className="description">{weather.condition}</p>
                     <Units celsius={Math.round(weather.temperature)} />
-                    <p><strong>Humidity:</strong> {weather.humidity}%, <strong>Wind:</strong> {weather.windSpeed}km/h</p>
+                    <p>Feels like <strong>{Math.round(weather.like)}°C</strong></p>
+                    <p><strong>Humidity:</strong> {weather.humidity}% | <strong>Wind:</strong> {weather.windSpeed}km/h | <strong>Pressure:</strong> {weather.pressure}hBa</p>
                 </div>
             </div>
         </div>
