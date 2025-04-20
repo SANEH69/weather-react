@@ -5,9 +5,9 @@ import "./DailyForecast.css"
 export default function DailyForecast() {
     return  (
     <div className="dailyForecast">
-        <div className="dailyTemp">
         <p>April 20, Sunday 18 : 59</p>
-        <h1>Durban, South Africa</h1>
+        <h2>Durban, South Africa</h2>
+        <div className="dailyTemp">
         <p>Monday</p>
         <p>💧 49%</p>
         <WeatherIcon code="clear-sky-day" size={30}/>

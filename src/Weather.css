@@ -1,5 +1,5 @@
 input {
-    padding: 15px 100px;
+    padding: 15px 200px;
     border-radius: 5px;
     border: 1px solid transparent;
     margin: 0px 5px;
@@ -7,6 +7,7 @@ input {
 .submitButton {
     background-color: #339DAE;
     font-size: medium;
+    padding: 15px 100px;
 }
 .weatherConditions {
   background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
@@ -29,7 +30,7 @@ p {
     font-size: 15px;
 }
 
- @media (max-width: 600px) {
+ @media (max-width: 900px) {
     .searchButton {
       padding: 5px 20px;
     }
