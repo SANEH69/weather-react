@@ -68,7 +68,7 @@ function Weather(props) {
                 <div className="weatherConditions">
                     <WeatherDate data={weather.date} />
                     <h2>{weather.city},{weather.country}</h2>
-                    <DailyForecast />
+                    <DailyForecast code={weather.city}/>
                 </div>
             </div>
         </div>

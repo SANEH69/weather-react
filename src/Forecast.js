@@ -2,7 +2,7 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function Forecast(props) {
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     function Day() {
         let date = new Date(props.data.time * 1000);
