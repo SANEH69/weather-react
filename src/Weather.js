@@ -4,6 +4,7 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherDate from "./WeatherDate";
 import Units from "./Units";
 import './Weather.css'
+import DailyForecast from "./DailyForecast";
 
 
 function Weather(props) {
@@ -57,11 +58,14 @@ function Weather(props) {
                 <div>
                     <WeatherDate data={weather.date} />
                     <h2>{weather.city},{weather.country}</h2>
-                    <WeatherIcon code={weather.icon} />
+                    <WeatherIcon code={weather.icon} size={112}/>
                     <p className="description">{weather.condition}</p>
                     <Units celsius={Math.round(weather.temperature)} />
                     <p>Feels like <strong>{Math.round(weather.like)}°C</strong></p>
                     <p><strong>Humidity:</strong> {weather.humidity}% | <strong>Wind:</strong> {weather.windSpeed}km/h | <strong>Pressure:</strong> {weather.pressure}hBa</p>
+                </div>
+                <div>
+                    <DailyForecast />
                 </div>
             </div>
         </div>
