@@ -12,7 +12,6 @@ function Weather(props) {
     let [weather, setWeather] = useState ({ ready: false });
 
     function displayWeather(response) {
-        console.log(response.data.temperature.feels_like);
         setWeather({
             ready: true,
             date : new Date(response.data.time * 1000),
@@ -66,7 +65,9 @@ function Weather(props) {
                     <p><strong>Humidity:</strong> {weather.humidity}% | <strong>Wind:</strong> {weather.windSpeed}km/h | <strong>Pressure:</strong> {weather.pressure}hBa</p>
                 </div>
                 </div>
-                <div>
+                <div className="weatherConditions">
+                    <WeatherDate data={weather.date} />
+                    <h2>{weather.city},{weather.country}</h2>
                     <DailyForecast />
                 </div>
             </div>

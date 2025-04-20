@@ -1,19 +1,38 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import React, { useState } from "react";
+import axios from "axios";
+import Forecast from "./Forecast";
 import "./DailyForecast.css"
 
 export default function DailyForecast() {
+    const [loaded, setLoaded] = useState(false);
+    const [forecast, setForecast] = useState(" ");
+
+    function displayForecast(response) {
+        setLoaded(true);
+        setForecast(response.data.daily);
+    }
+
+
+    let apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Durban&key=${apiKey}`;
+
+    axios.get(apiUrl).then(displayForecast);
+
+    if (loaded) {
     return  (
     <div className="dailyForecast">
-        <p>April 20, Sunday 18 : 59</p>
-        <h2>Durban, South Africa</h2>
-        <div className="dailyTemp">
-        <p>Monday</p>
-        <p>💧 49%</p>
-        <WeatherIcon code="clear-sky-day" size={30}/>
-        <span><p>29°C</p></span>
-        <span className="minTemp"><p>17°C</p></span>
+        <div>
+        {forecast.map(function(displayDaily, index) {
+         if (index < 5) {
+           return (
+           <Forecast data={displayDaily} />
+         );
+        }
+        })}        
         </div>
     </div>
-    );
+    ); 
+    } else {
+        return <p>"Loading"</p>;
+    }
 }
