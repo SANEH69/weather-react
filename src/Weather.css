@@ -11,6 +11,9 @@ input {
 .weatherConditions {
   background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
   padding: 20px;
+ 
+}
+.weatherDisplay {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
@@ -26,11 +29,14 @@ p {
     font-size: 15px;
 }
 
-  @media (max-width: 600px) {
+ @media (max-width: 600px) {
     .searchButton {
       padding: 5px 20px;
     }
     .submitButton {
       padding: 5px;
+    }
+    .weatherDisplay {
+      grid: none;
     }
   }

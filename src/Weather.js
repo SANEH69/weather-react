@@ -54,6 +54,7 @@ function Weather(props) {
     return (
         <div>
             <h1>{form}</h1>
+            <div className="weatherDisplay">
             <div className="weatherConditions">
                 <div>
                     <WeatherDate data={weather.date} />
@@ -63,6 +64,7 @@ function Weather(props) {
                     <Units celsius={Math.round(weather.temperature)} />
                     <p>Feels like <strong>{Math.round(weather.like)}°C</strong></p>
                     <p><strong>Humidity:</strong> {weather.humidity}% | <strong>Wind:</strong> {weather.windSpeed}km/h | <strong>Pressure:</strong> {weather.pressure}hBa</p>
+                </div>
                 </div>
                 <div>
                     <DailyForecast />
