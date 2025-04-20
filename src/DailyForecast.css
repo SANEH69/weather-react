@@ -1,4 +1,18 @@
 .dailyForecast {
     background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
-    padding: 20px;
+    padding: 20px;   
+}
+.dailyTemp {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #31CABC;
+}
+.dailyForecast p {
+    font-family: monospace;
+    font-weight: 700;
+}
+.minTemp {
+    color: #313131;
+    opacity: 0.8;
 }
