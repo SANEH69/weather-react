@@ -17,23 +17,19 @@ export default function DailyForecast(props) {
     }, [props.code]);
 
     if (loaded) {
-    return  (
-    <div className="dailyForecast">
-        <div>
-        {forecast.map(function(displayDaily, index) {
-         if (index < 5) {
-           return (
-           <Forecast data={displayDaily} />
-         );
-        }
-        })}        
-        </div>
-    </div>
-    ); 
+        return (
+            <div className="dailyForecast">
+                <div>
+                    {forecast.slice(0, 5).map((displayDaily, index) => (
+                        <Forecast key={index} data={displayDaily} />
+                    ))}
+                </div>
+            </div>
+        );
     } else {
-        let apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
-        let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.code}&key=${apiKey}`;
-
+        const apiKey = "04d1784de2be03a1bd2o2db8tf6b23e4";
+        const apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.code}&key=${apiKey}`;
+    
         axios.get(apiUrl).then(displayForecast);
         return <p>LOADING...</p>;
     }
